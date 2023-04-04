@@ -1,0 +1,257 @@
+##fileformat=VCFv4.2
+##FILTER=<ID=PASS,Description="All filters passed">
+##FORMAT=<ID=AC,Number=1,Type=Integer,Description="Count of reads with ALT allele">
+##FORMAT=<ID=DP,Number=1,Type=Integer,Description="Number of high-quality bases">
+##FORMAT=<ID=DS,Number=1,Type=Float,Description="Genotype dosage">
+##FORMAT=<ID=GP,Number=3,Type=Float,Description="Genotype posteriors">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FORMAT=<ID=RC,Number=1,Type=Integer,Description="Count of reads with REF allele">
+##contig=<ID=1>
+##contig=<ID=2>
+##contig=<ID=3>
+##contig=<ID=4>
+##contig=<ID=5>
+##contig=<ID=6>
+##contig=<ID=7>
+##contig=<ID=8>
+##contig=<ID=9>
+##contig=<ID=10>
+##contig=<ID=11>
+##contig=<ID=12>
+##contig=<ID=13>
+##contig=<ID=14>
+##contig=<ID=15>
+##contig=<ID=16>
+##contig=<ID=NW_020555814.1>
+##contig=<ID=NW_020555815.1>
+##contig=<ID=NW_020555841.1>
+##contig=<ID=NW_020555842.1>
+##contig=<ID=NW_020555843.1>
+##contig=<ID=NW_020555846.1>
+##contig=<ID=NW_020555859.1>
+##contig=<ID=NW_020555860.1>
+##contig=<ID=NW_020555861.1>
+##contig=<ID=NW_020555862.1>
+##contig=<ID=NW_020555863.1>
+##contig=<ID=NW_020555864.1>
+##contig=<ID=NW_020555865.1>
+##contig=<ID=NW_020555866.1>
+##contig=<ID=NW_020555867.1>
+##contig=<ID=NW_020555868.1>
+##contig=<ID=NW_020555869.1>
+##contig=<ID=NW_020555870.1>
+##contig=<ID=NW_020555872.1>
+##contig=<ID=NW_020555879.1>
+##contig=<ID=NW_020555880.1>
+##contig=<ID=NW_020555882.1>
+##contig=<ID=NW_020555884.1>
+##contig=<ID=NW_020555890.1>
+##contig=<ID=NW_020555893.1>
+##contig=<ID=NW_020555894.1>
+##contig=<ID=NW_020555912.1>
+##bcftools_viewVersion=1.8+htslib-1.8
+##bcftools_viewCommand=view -m2 -M2 -v snps --threads 4 -Ob -o /scratch/bell/dryals/pipeline/sample1.bcf.gz /depot/bharpur/data/popgenomes/gencove/Dylan_AHB_Samples_108/Dylan_AHB.vcf.bgz; Date=Fri Jan 20 16:30:02 2023
+##fileDate=31/08/2022 - 15:26:15
+##source=Gencove SaaS v2.0.0 (v20220823t195859z)
+##generatedby=Gencove
+##reference=bee/Amel_HA_v3_1/v1_0_0
+##imputationpanel=bee/purdue_v1/v1_0_0
+##gencovesampleid=399b7763-7c7c-4f81-ba2e-056e81e84b0c
+##INFO=<ID=RAF,Number=A,Type=Float,Description="ALT allele frequency in the reference panel">
+##INFO=<ID=AF,Number=A,Type=Float,Description="ALT allele frequency computed from DS/GP field across target samples">
+##INFO=<ID=BUF,Number=A,Type=Integer,Description="Is it a variant site falling within buffer regions? (0=no/1=yes)">
+##NMAIN=10
+##FPLOIDY=2
+##FILTER=<ID=LOWCONF,Description="Set if not true: MAX(FORMAT/GP)>0.9">
+##bcftools_annotateVersion=1.8+htslib-1.8
+##bcftools_annotateCommand=annotate -a gls.0.0.vcf.gz -c FORMAT/RC,FORMAT/AC,FORMAT/DP -Oz -o glimpse.0.0.vcf.gz unannotated.0.0.vcf.gz; Date=Wed Aug 31 15:26:17 2022
+##bcftools_mergeVersion=1.8+htslib-1.8
+##bcftools_mergeCommand=merge -m snps -l vcflist.txt -o allmerged.vcfa; Date=Fri Sep 23 13:00:45 2022
+##ALT=<ID=NON_REF,Description="Represents any possible alternative allele not already represented at this location by REF and ALT">
+##FILTER=<ID=LowQual,Description="Low quality">
+##FILTER=<ID=VQSRTrancheSNP99.00to99.90,Description="Truth sensitivity tranche level for SNP model at VQS Lod: -694.8717 <= x < -21.2614">
+##FILTER=<ID=VQSRTrancheSNP99.90to100.00+,Description="Truth sensitivity tranche level for SNP model at VQS Lod < -66723.7528">
+##FILTER=<ID=VQSRTrancheSNP99.90to100.00,Description="Truth sensitivity tranche level for SNP model at VQS Lod: -66723.7528 <= x < -694.8717">
+##FORMAT=<ID=AD,Number=R,Type=Integer,Description="Allelic depths for the ref and alt alleles in the order listed">
+##FORMAT=<ID=GQ,Number=1,Type=Integer,Description="Genotype Quality">
+##FORMAT=<ID=MIN_DP,Number=1,Type=Integer,Description="Minimum DP observed within the GVCF block">
+##FORMAT=<ID=PGT,Number=1,Type=String,Description="Physical phasing haplotype information, describing how the alternate alleles are phased in relation to one another; will always be heterozygous and is not intended to describe called alleles">
+##FORMAT=<ID=PID,Number=1,Type=String,Description="Physical phasing ID information, where each unique ID within a given sample (but not across samples) connects records within a phasing group">
+##FORMAT=<ID=PL,Number=G,Type=Integer,Description="Normalized, Phred-scaled likelihoods for genotypes as defined in the VCF specification">
+##FORMAT=<ID=PS,Number=1,Type=Integer,Description="Phasing set (typically the position of the first variant in the set)">
+##FORMAT=<ID=RGQ,Number=1,Type=Integer,Description="Unconditional reference genotype confidence, encoded as a phred quality -10*log10 p(genotype call is wrong)">
+##FORMAT=<ID=SB,Number=4,Type=Integer,Description="Per-sample component statistics which comprise the Fisher's Exact Test to detect strand bias.">
+##GATKCommandLine=<ID=ApplyVQSR,CommandLine="ApplyVQSR --recal-file /depot/bharpur/data/popgenomes/HarpurPNAS/out --tranches-file output.tranches --output output_snp.vcf --truth-sensitivity-filter-level 99.0 --mode SNP --variant cohortGGVCF_g.vcf --reference /depot/bharpur/data/ref_genomes/AMEL/Amel_HAv3.1_genomic.fna --use-allele-specific-annotations false --ignore-all-filters false --exclude-filtered false --interval-set-rule UNION --interval-padding 0 --interval-exclusion-padding 0 --interval-merging-rule ALL --read-validation-stringency SILENT --seconds-between-progress-updates 10.0 --disable-sequence-dictionary-validation false --create-output-bam-index true --create-output-bam-md5 false --create-output-variant-index true --create-output-variant-md5 false --max-variants-per-shard 0 --lenient false --add-output-sam-program-record true --add-output-vcf-command-line true --cloud-prefetch-buffer 40 --cloud-index-prefetch-buffer -1 --disable-bam-index-caching false --sites-only-vcf-output false --help false --version false --showHidden false --verbosity INFO --QUIET false --use-jdk-deflater false --use-jdk-inflater false --gcs-max-retries 20 --gcs-project-for-requester-pays  --disable-tool-default-read-filters false",Version="4.2.2.0",Date="November 24, 2022 7:59:36 AM EST">
+##GATKCommandLine=<ID=CombineGVCFs,CommandLine="CombineGVCFs --output cohort_g.vcf --variant vcf.list --reference /depot/bharpur/data/ref_genomes/AMEL/Amel_HAv3.1_genomic.fna --convert-to-base-pair-resolution false --break-bands-at-multiples-of 0 --input-is-somatic false --drop-somatic-filtering-annotations false --ignore-variants-starting-outside-interval false --combine-variants-distance 0 --max-distance 2147483647 --ref-padding 1 --interval-set-rule UNION --interval-padding 0 --interval-exclusion-padding 0 --interval-merging-rule ALL --read-validation-stringency SILENT --seconds-between-progress-updates 10.0 --disable-sequence-dictionary-validation false --create-output-bam-index true --create-output-bam-md5 false --create-output-variant-index true --create-output-variant-md5 false --max-variants-per-shard 0 --lenient false --add-output-sam-program-record true --add-output-vcf-command-line true --cloud-prefetch-buffer 40 --cloud-index-prefetch-buffer -1 --disable-bam-index-caching false --sites-only-vcf-output false --help false --version false --showHidden false --verbosity INFO --QUIET false --use-jdk-deflater false --use-jdk-inflater false --gcs-max-retries 20 --gcs-project-for-requester-pays  --disable-tool-default-read-filters false --disable-tool-default-annotations false --enable-all-annotations false --allow-old-rms-mapping-quality-annotation-data false",Version="4.2.2.0",Date="November 20, 2022 10:38:04 AM EST">
+##GATKCommandLine=<ID=GenotypeGVCFs,CommandLine="GenotypeGVCFs --output cohortGGVCF_g.vcf --variant cohort_g.vcf --reference /depot/bharpur/data/ref_genomes/AMEL/Amel_HAv3.1_genomic.fna --include-non-variant-sites false --merge-input-intervals false --input-is-somatic false --tumor-lod-to-emit 3.5 --allele-fraction-error 0.001 --keep-combined-raw-annotations false --use-posteriors-to-calculate-qual false --dont-use-dragstr-priors false --use-new-qual-calculator true --annotate-with-num-discovered-alleles false --heterozygosity 0.001 --indel-heterozygosity 1.25E-4 --heterozygosity-stdev 0.01 --standard-min-confidence-threshold-for-calling 30.0 --max-alternate-alleles 6 --max-genotype-count 1024 --sample-ploidy 2 --num-reference-samples-if-no-call 0 --genotype-assignment-method USE_PLS_TO_ASSIGN --genomicsdb-use-bcf-codec false --genomicsdb-shared-posixfs-optimizations false --genomicsdb-use-gcs-hdfs-connector false --only-output-calls-starting-in-intervals false --interval-set-rule UNION --interval-padding 0 --interval-exclusion-padding 0 --interval-merging-rule ALL --read-validation-stringency SILENT --seconds-between-progress-updates 10.0 --disable-sequence-dictionary-validation false --create-output-bam-index true --create-output-bam-md5 false --create-output-variant-index true --create-output-variant-md5 false --max-variants-per-shard 0 --lenient false --add-output-sam-program-record true --add-output-vcf-command-line true --cloud-prefetch-buffer 40 --cloud-index-prefetch-buffer -1 --disable-bam-index-caching false --sites-only-vcf-output false --help false --version false --showHidden false --verbosity INFO --QUIET false --use-jdk-deflater false --use-jdk-inflater false --gcs-max-retries 20 --gcs-project-for-requester-pays  --disable-tool-default-read-filters false --disable-tool-default-annotations false --enable-all-annotations false --allow-old-rms-mapping-quality-annotation-data false",Version="4.2.2.0",Date="November 22, 2022 12:54:33 PM EST">
+##GATKCommandLine=<ID=HaplotypeCaller,CommandLine="HaplotypeCaller --emit-ref-confidence GVCF --output /depot/bharpur/data/popgenomes/nextflow/PRJNA729035//raw_snps/SRR14703777_raw_snps.vcf --input /scratch/bell/gollerb/recal_bam_files/SRR14703777_recal_3.bam --reference /depot/bharpur/data/ref_genomes/AMEL/Amel_HAv3.1_genomic.fna --use-posteriors-to-calculate-qual false --dont-use-dragstr-priors false --use-new-qual-calculator true --annotate-with-num-discovered-alleles false --heterozygosity 0.001 --indel-heterozygosity 1.25E-4 --heterozygosity-stdev 0.01 --standard-min-confidence-threshold-for-calling 30.0 --max-alternate-alleles 6 --max-genotype-count 1024 --sample-ploidy 2 --num-reference-samples-if-no-call 0 --genotype-assignment-method USE_PLS_TO_ASSIGN --contamination-fraction-to-filter 0.0 --output-mode EMIT_VARIANTS_ONLY --all-site-pls false --gvcf-gq-bands 1 --gvcf-gq-bands 2 --gvcf-gq-bands 3 --gvcf-gq-bands 4 --gvcf-gq-bands 5 --gvcf-gq-bands 6 --gvcf-gq-bands 7 --gvcf-gq-bands 8 --gvcf-gq-bands 9 --gvcf-gq-bands 10 --gvcf-gq-bands 11 --gvcf-gq-bands 12 --gvcf-gq-bands 13 --gvcf-gq-bands 14 --gvcf-gq-bands 15 --gvcf-gq-bands 16 --gvcf-gq-bands 17 --gvcf-gq-bands 18 --gvcf-gq-bands 19 --gvcf-gq-bands 20 --gvcf-gq-bands 21 --gvcf-gq-bands 22 --gvcf-gq-bands 23 --gvcf-gq-bands 24 --gvcf-gq-bands 25 --gvcf-gq-bands 26 --gvcf-gq-bands 27 --gvcf-gq-bands 28 --gvcf-gq-bands 29 --gvcf-gq-bands 30 --gvcf-gq-bands 31 --gvcf-gq-bands 32 --gvcf-gq-bands 33 --gvcf-gq-bands 34 --gvcf-gq-bands 35 --gvcf-gq-bands 36 --gvcf-gq-bands 37 --gvcf-gq-bands 38 --gvcf-gq-bands 39 --gvcf-gq-bands 40 --gvcf-gq-bands 41 --gvcf-gq-bands 42 --gvcf-gq-bands 43 --gvcf-gq-bands 44 --gvcf-gq-bands 45 --gvcf-gq-bands 46 --gvcf-gq-bands 47 --gvcf-gq-bands 48 --gvcf-gq-bands 49 --gvcf-gq-bands 50 --gvcf-gq-bands 51 --gvcf-gq-bands 52 --gvcf-gq-bands 53 --gvcf-gq-bands 54 --gvcf-gq-bands 55 --gvcf-gq-bands 56 --gvcf-gq-bands 57 --gvcf-gq-bands 58 --gvcf-gq-bands 59 --gvcf-gq-bands 60 --gvcf-gq-bands 70 --gvcf-gq-bands 80 --gvcf-gq-bands 90 --gvcf-gq-bands 99 --floor-blocks false --indel-size-to-eliminate-in-ref-model 10 --disable-optimizations false --dragen-mode false --apply-bqd false --apply-frd false --disable-spanning-event-genotyping false --transform-dragen-mapping-quality false --mapping-quality-threshold-for-genotyping 20 --max-effective-depth-adjustment-for-frd 0 --just-determine-active-regions false --dont-genotype false --do-not-run-physical-phasing false --do-not-correct-overlapping-quality false --use-filtered-reads-for-annotations false --adaptive-pruning false --do-not-recover-dangling-branches false --recover-dangling-heads false --kmer-size 10 --kmer-size 25 --dont-increase-kmer-sizes-for-cycles false --allow-non-unique-kmers-in-ref false --num-pruning-samples 1 --min-dangling-branch-length 4 --recover-all-dangling-branches false --max-num-haplotypes-in-population 128 --min-pruning 2 --adaptive-pruning-initial-error-rate 0.001 --pruning-lod-threshold 2.302585092994046 --pruning-seeding-lod-threshold 9.210340371976184 --max-unpruned-variants 100 --linked-de-bruijn-graph false --disable-artificial-haplotype-recovery false --enable-legacy-graph-cycle-detection false --debug-assembly false --debug-graph-transformations false --capture-assembly-failure-bam false --num-matching-bases-in-dangling-end-to-recover -1 --error-correction-log-odds -Infinity --error-correct-reads false --kmer-length-for-read-error-correction 25 --min-observations-for-kmer-to-be-solid 20 --base-quality-score-threshold 18 --dragstr-het-hom-ratio 2 --dont-use-dragstr-pair-hmm-scores false --pair-hmm-gap-continuation-penalty 10 --expected-mismatch-rate-for-read-disqualification 0.02 --pair-hmm-implementation FASTEST_AVAILABLE --pcr-indel-model CONSERVATIVE --phred-scaled-global-read-mismapping-rate 45 --disable-symmetric-hmm-normalizing false --disable-cap-base-qualities-to-map-quality false --enable-dynamic-read-disqualification-for-genotyping false --dynamic-read-disqualification-threshold 1.0 --native-pair-hmm-threads 4 --native-pair-hmm-use-double-precision false --bam-writer-type CALLED_HAPLOTYPES --dont-use-soft-clipped-bases false --min-base-quality-score 10 --smith-waterman JAVA --max-mnp-distance 0 --force-call-filtered-alleles false --soft-clip-low-quality-ends false --allele-informative-reads-overlap-margin 2 --min-assembly-region-size 50 --max-assembly-region-size 300 --active-probability-threshold 0.002 --max-prob-propagation-distance 50 --force-active false --assembly-region-padding 100 --padding-around-indels 75 --padding-around-snps 20 --padding-around-strs 75 --max-extension-into-assembly-region-padding-legacy 25 --max-reads-per-alignment-start 50 --enable-legacy-assembly-region-trimming false --interval-set-rule UNION --interval-padding 0 --interval-exclusion-padding 0 --interval-merging-rule ALL --read-validation-stringency SILENT --seconds-between-progress-updates 10.0 --disable-sequence-dictionary-validation false --create-output-bam-index true --create-output-bam-md5 false --create-output-variant-index true --create-output-variant-md5 false --max-variants-per-shard 0 --lenient false --add-output-sam-program-record true --add-output-vcf-command-line true --cloud-prefetch-buffer 40 --cloud-index-prefetch-buffer -1 --disable-bam-index-caching false --sites-only-vcf-output false --help false --version false --showHidden false --verbosity INFO --QUIET false --use-jdk-deflater false --use-jdk-inflater false --gcs-max-retries 20 --gcs-project-for-requester-pays  --disable-tool-default-read-filters false --minimum-mapping-quality 20 --disable-tool-default-annotations false --enable-all-annotations false --allow-old-rms-mapping-quality-annotation-data false",Version="4.2.2.0",Date="October 13, 2022 1:05:55 AM EDT">
+##INFO=<ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes, for each ALT allele, in the same order as listed">
+##INFO=<ID=AN,Number=1,Type=Integer,Description="Total number of alleles in called genotypes">
+##INFO=<ID=BaseQRankSum,Number=1,Type=Float,Description="Z-score from Wilcoxon rank sum test of Alt Vs. Ref base qualities">
+##INFO=<ID=DP,Number=1,Type=Integer,Description="Approximate read depth; some reads may have been filtered">
+##INFO=<ID=END,Number=1,Type=Integer,Description="Stop position of the interval">
+##INFO=<ID=ExcessHet,Number=1,Type=Float,Description="Phred-scaled p-value for exact test of excess heterozygosity">
+##INFO=<ID=FS,Number=1,Type=Float,Description="Phred-scaled p-value using Fisher's exact test to detect strand bias">
+##INFO=<ID=InbreedingCoeff,Number=1,Type=Float,Description="Inbreeding coefficient as estimated from the genotype likelihoods per-sample when compared against the Hardy-Weinberg expectation">
+##INFO=<ID=MLEAC,Number=A,Type=Integer,Description="Maximum likelihood expectation (MLE) for the allele counts (not necessarily the same as the AC), for each ALT allele, in the same order as listed">
+##INFO=<ID=MLEAF,Number=A,Type=Float,Description="Maximum likelihood expectation (MLE) for the allele frequency (not necessarily the same as the AF), for each ALT allele, in the same order as listed">
+##INFO=<ID=MQ,Number=1,Type=Float,Description="RMS Mapping Quality">
+##INFO=<ID=MQRankSum,Number=1,Type=Float,Description="Z-score From Wilcoxon rank sum test of Alt vs. Ref read mapping qualities">
+##INFO=<ID=NEGATIVE_TRAIN_SITE,Number=0,Type=Flag,Description="This variant was used to build the negative training set of bad variants">
+##INFO=<ID=POSITIVE_TRAIN_SITE,Number=0,Type=Flag,Description="This variant was used to build the positive training set of good variants">
+##INFO=<ID=QD,Number=1,Type=Float,Description="Variant Confidence/Quality by Depth">
+##INFO=<ID=RAW_MQandDP,Number=2,Type=Integer,Description="Raw data (sum of squared MQ and total depth) for improved RMS Mapping Quality calculation. Incompatible with deprecated RAW_MQ formulation.">
+##INFO=<ID=ReadPosRankSum,Number=1,Type=Float,Description="Z-score from Wilcoxon rank sum test of Alt vs. Ref read position bias">
+##INFO=<ID=SOR,Number=1,Type=Float,Description="Symmetric Odds Ratio of 2x2 contingency table to detect strand bias">
+##INFO=<ID=VQSLOD,Number=1,Type=Float,Description="Log odds of being a true variant versus being false under the trained gaussian mixture model">
+##INFO=<ID=culprit,Number=1,Type=String,Description="The annotation which was the worst performing in the Gaussian mixture model, likely the reason why the variant was filtered out">
+##contig=<ID=NW_020555788.1,length=3988>
+##contig=<ID=NW_020555789.1,length=24043>
+##contig=<ID=NW_020555790.1,length=23881>
+##contig=<ID=NW_020555791.1,length=28854>
+##contig=<ID=NW_020555792.1,length=22163>
+##contig=<ID=NW_020555793.1,length=12667>
+##contig=<ID=NW_020555794.1,length=40528>
+##contig=<ID=NW_020555795.1,length=17189>
+##contig=<ID=NW_020555796.1,length=11842>
+##contig=<ID=NW_020555797.1,length=41529>
+##contig=<ID=NW_020555798.1,length=41327>
+##contig=<ID=NW_020555799.1,length=36874>
+##contig=<ID=NW_020555800.1,length=34862>
+##contig=<ID=NW_020555801.1,length=31353>
+##contig=<ID=NW_020555802.1,length=26859>
+##contig=<ID=NW_020555803.1,length=25295>
+##contig=<ID=NW_020555804.1,length=21070>
+##contig=<ID=NW_020555805.1,length=18505>
+##contig=<ID=NW_020555806.1,length=17223>
+##contig=<ID=NW_020555807.1,length=17199>
+##contig=<ID=NW_020555808.1,length=15069>
+##contig=<ID=NW_020555809.1,length=14774>
+##contig=<ID=NW_020555810.1,length=11259>
+##contig=<ID=NW_020555811.1,length=11145>
+##contig=<ID=NW_020555812.1,length=6719>
+##contig=<ID=NW_020555813.1,length=4248>
+##contig=<ID=NW_020555816.1,length=40431>
+##contig=<ID=NW_020555817.1,length=28022>
+##contig=<ID=NW_020555818.1,length=23055>
+##contig=<ID=NW_020555819.1,length=22320>
+##contig=<ID=NW_020555820.1,length=20023>
+##contig=<ID=NW_020555821.1,length=35182>
+##contig=<ID=NW_020555822.1,length=24609>
+##contig=<ID=NW_020555823.1,length=15613>
+##contig=<ID=NW_020555824.1,length=13259>
+##contig=<ID=NW_020555825.1,length=3624>
+##contig=<ID=NW_020555826.1,length=18903>
+##contig=<ID=NW_020555827.1,length=35146>
+##contig=<ID=NW_020555828.1,length=24061>
+##contig=<ID=NW_020555829.1,length=23155>
+##contig=<ID=NW_020555830.1,length=21574>
+##contig=<ID=NW_020555831.1,length=19344>
+##contig=<ID=NW_020555832.1,length=16896>
+##contig=<ID=NW_020555833.1,length=16072>
+##contig=<ID=NW_020555834.1,length=14199>
+##contig=<ID=NW_020555835.1,length=13856>
+##contig=<ID=NW_020555836.1,length=12635>
+##contig=<ID=NW_020555837.1,length=12630>
+##contig=<ID=NW_020555838.1,length=11160>
+##contig=<ID=NW_020555839.1,length=9716>
+##contig=<ID=NW_020555840.1,length=8753>
+##contig=<ID=NW_020555844.1,length=35241>
+##contig=<ID=NW_020555845.1,length=24031>
+##contig=<ID=NW_020555847.1,length=21570>
+##contig=<ID=NW_020555848.1,length=21229>
+##contig=<ID=NW_020555849.1,length=20706>
+##contig=<ID=NW_020555850.1,length=18311>
+##contig=<ID=NW_020555851.1,length=10530>
+##contig=<ID=NW_020555852.1,length=9153>
+##contig=<ID=NW_020555853.1,length=5948>
+##contig=<ID=NW_020555854.1,length=5288>
+##contig=<ID=NW_020555855.1,length=4502>
+##contig=<ID=NW_020555856.1,length=3152>
+##contig=<ID=NW_020555857.1,length=3072>
+##contig=<ID=NW_020555858.1,length=2987>
+##contig=<ID=NW_020555871.1,length=49670>
+##contig=<ID=NW_020555873.1,length=36396>
+##contig=<ID=NW_020555874.1,length=35193>
+##contig=<ID=NW_020555875.1,length=35070>
+##contig=<ID=NW_020555876.1,length=34588>
+##contig=<ID=NW_020555877.1,length=33219>
+##contig=<ID=NW_020555878.1,length=30850>
+##contig=<ID=NW_020555881.1,length=29749>
+##contig=<ID=NW_020555883.1,length=28697>
+##contig=<ID=NW_020555885.1,length=25299>
+##contig=<ID=NW_020555886.1,length=25083>
+##contig=<ID=NW_020555887.1,length=24917>
+##contig=<ID=NW_020555888.1,length=24436>
+##contig=<ID=NW_020555889.1,length=22456>
+##contig=<ID=NW_020555891.1,length=21830>
+##contig=<ID=NW_020555892.1,length=21705>
+##contig=<ID=NW_020555895.1,length=20251>
+##contig=<ID=NW_020555896.1,length=19254>
+##contig=<ID=NW_020555897.1,length=18419>
+##contig=<ID=NW_020555898.1,length=18185>
+##contig=<ID=NW_020555899.1,length=18108>
+##contig=<ID=NW_020555900.1,length=16039>
+##contig=<ID=NW_020555901.1,length=15874>
+##contig=<ID=NW_020555902.1,length=15501>
+##contig=<ID=NW_020555903.1,length=15245>
+##contig=<ID=NW_020555904.1,length=14627>
+##contig=<ID=NW_020555905.1,length=14470>
+##contig=<ID=NW_020555906.1,length=14429>
+##contig=<ID=NW_020555907.1,length=13874>
+##contig=<ID=NW_020555908.1,length=13557>
+##contig=<ID=NW_020555909.1,length=13184>
+##contig=<ID=NW_020555910.1,length=12682>
+##contig=<ID=NW_020555911.1,length=12676>
+##contig=<ID=NW_020555913.1,length=12356>
+##contig=<ID=NW_020555914.1,length=12212>
+##contig=<ID=NW_020555915.1,length=12075>
+##contig=<ID=NW_020555916.1,length=11738>
+##contig=<ID=NW_020555917.1,length=11215>
+##contig=<ID=NW_020555918.1,length=10554>
+##contig=<ID=NW_020555919.1,length=9876>
+##contig=<ID=NW_020555920.1,length=9803>
+##contig=<ID=NW_020555921.1,length=9724>
+##contig=<ID=NW_020555922.1,length=9462>
+##contig=<ID=NW_020555923.1,length=9171>
+##contig=<ID=NW_020555924.1,length=9093>
+##contig=<ID=NW_020555925.1,length=8299>
+##contig=<ID=NW_020555926.1,length=8261>
+##contig=<ID=NW_020555927.1,length=8085>
+##contig=<ID=NW_020555928.1,length=8075>
+##contig=<ID=NW_020555929.1,length=7938>
+##contig=<ID=NW_020555930.1,length=7794>
+##contig=<ID=NW_020555931.1,length=7505>
+##contig=<ID=NW_020555932.1,length=7322>
+##contig=<ID=NW_020555933.1,length=7158>
+##contig=<ID=NW_020555934.1,length=7118>
+##contig=<ID=NW_020555935.1,length=7093>
+##contig=<ID=NW_020555936.1,length=6759>
+##contig=<ID=NW_020555937.1,length=6019>
+##contig=<ID=NW_020555938.1,length=5439>
+##contig=<ID=NW_020555939.1,length=5147>
+##contig=<ID=NW_020555940.1,length=5036>
+##contig=<ID=NW_020555941.1,length=5006>
+##contig=<ID=NW_020555942.1,length=4954>
+##contig=<ID=NW_020555943.1,length=4407>
+##contig=<ID=NW_020555944.1,length=3840>
+##contig=<ID=NW_020555945.1,length=3691>
+##contig=<ID=NW_020555946.1,length=2376>
+##contig=<ID=NW_020555947.1,length=2302>
+##contig=<ID=NC_001566.1,length=16343>
+##bcftools_mergeCommand=merge -0 -m snps -Ou sample1.bcf.gz sample2.bcf.gz sample3.bcf.gz sample4.bcf.gz sample5.bcf.gz sample6.bcf.gz reference.bcf.gz; Date=Mon Jan 23 10:16:10 2023
+##bcftools_viewCommand=view -m2 -M2 -f .,PASS -o admix.vcf; Date=Mon Jan 23 10:16:10 2023
+##bcftools_annotateCommand=annotate --rename-chrs /home/dryals/ryals/admixPipeline/chrsrename.txt --threads 8 -Oz -o admix.vcf.gz admix.recode.vcf.gz; Date=Wed Jan 25 13:09:40 2023
+##bcftools_viewCommand=view -r 3 -S smallsamples.txt --threads 4 -Oz -o /home/dryals/ryals/practice/small.vcf.gz admix.vcf.gz; Date=Thu Feb 16 11:52:39 2023
+##bcftools_viewCommand=view -h -o header.vcf small.vcf.gz; Date=Thu Feb 16 13:05:01 2023
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	SRR14703791	SRR14703855	OH22-22KJ1-A	OH22-22KJ1-B	UKA2022-1-1	VP22-W97-4	VP22-W97-5	KY22-HY20	WA22-ND26	Z7
+3	2246	.	T	A	184.34	PASS	AC=0;AN=20	GT:AD:DP:GQ:PGT:PID:PL:PS	0/0:9,0:9:27:.:.:0,27,203:.	0/0:45,0:45:99:.:.:0,105,1110:.	0/0:.:.:.:.:.:.:.	0/0:.:.:.:.:.:.:.	0/0:.:.:.:.:.:.:.	0/0:.:.:.:.:.:.:.	0/0:.:.:.:.:.:.:.	0/0:.:.:.:.:.:.:.	0/0:.:.:.:.:.:.:.	0/0:.:.:.:.:.:.:.
+3	2262	.	C	A	227.47	PASS	AC=0;AN=20	GT:AD:DP:GQ:PGT:PID:PL:PS	0/0:10,0:10:30:.:.:0,30,228:.	0/0:27,0:27:81:.:.:0,81,594:.	0/0:.:.:.:.:.:.:.	0/0:.:.:.:.:.:.:.	0/0:.:.:.:.:.:.:.	0/0:.:.:.:.:.:.:.	0/0:.:.:.:.:.:.:.	0/0:.:.:.:.:.:.:.	0/0:.:.:.:.:.:.:.	0/0:.:.:.:.:.:.:.
+3	2263	.	T	A	205.57	PASS	AC=0;AN=20	GT:AD:DP:GQ:PL	0/0:11,0:11:33:0,33,285	0/0:27,0:27:81:0,81,594	0/0:.:.:.:.	0/0:.:.:.:.	0/0:.:.:.:.	0/0:.:.:.:.	0/0:.:.:.:.	0/0:.:.:.:.	0/0:.:.:.:.	0/0:.:.:.:.
+3	2265	.	T	C	112780	PASS	AC=2;AN=20	GT:AD:DP:GQ:PGT:PID:PL:PS	0/1:6,3:9:43:.:.:43,0,132:.	0/1:4,24:28:23:.:.:482,0,23:.	0/0:.:.:.:.:.:.:.	0/0:.:.:.:.:.:.:.	0/0:.:.:.:.:.:.:.	0/0:.:.:.:.:.:.:.	0/0:.:.:.:.:.:.:.	0/0:.:.:.:.:.:.:.	0/0:.:.:.:.:.:.:.	0/0:.:.:.:.:.:.:.
+3	2297	.	C	T	283.54	PASS	AC=0;AN=20	GT:AD:DP:GQ:PL	0/0:11,0:11:33:0,33,235	0/0:31,0:31:92:0,92,676	0/0:.:.:.:.	0/0:.:.:.:.	0/0:.:.:.:.	0/0:.:.:.:.	0/0:.:.:.:.	0/0:.:.:.:.	0/0:.:.:.:.	0/0:.:.:.:.
+3	2333	.	C	A	784.36	PASS	AC=0;AN=20	GT:AD:DP:GQ:PGT:PID:PL:PS	0/0:12,0:12:36:.:.:0,36,320:.	0/0:26,3:29:5:.:.:0,5,460:.	0/0:.:.:.:.:.:.:.	0/0:.:.:.:.:.:.:.	0/0:.:.:.:.:.:.:.	0/0:.:.:.:.:.:.:.	0/0:.:.:.:.:.:.:.	0/0:.:.:.:.:.:.:.	0/0:.:.:.:.:.:.:.	0/0:.:.:.:.:.:.:.
+3	2375	.	A	C	54.74	PASS	AC=0;AN=20	GT:AD:DP:GQ:PGT:PID:PL:PS	0/0:9,0:9:9:.:.:0,9,170:.	0/0:3,0:3:9:.:.:0,9,65:.	0/0:.:.:.:.:.:.:.	0/0:.:.:.:.:.:.:.	0/0:.:.:.:.:.:.:.	0/0:.:.:.:.:.:.:.	0/0:.:.:.:.:.:.:.	0/0:.:.:.:.:.:.:.	0/0:.:.:.:.:.:.:.	0/0:.:.:.:.:.:.:.
+3	2384	.	T	C	47283.8	PASS	AC=2;AN=20	GT:AD:DP:GQ:PGT:PID:PL:PS	0/0:6,0:6:15:.:.:0,15,225:.	1|1:0,3:3:9:1|1:2382_AT_A:122,9,0:2382	0/0:.:.:.:.:.:.:.	0/0:.:.:.:.:.:.:.	0/0:.:.:.:.:.:.:.	0/0:.:.:.:.:.:.:.	0/0:.:.:.:.:.:.:.	0/0:.:.:.:.:.:.:.	0/0:.:.:.:.:.:.:.	0/0:.:.:.:.:.:.:.
+3	2419	.	C	T	401.89	PASS	AC=0;AN=20	GT:AD:DP:GQ:PL	0/0:2,0:2:6:0,6,35	0/0:4,0:4:9:0,9,135	0/0:.:.:.:.	0/0:.:.:.:.	0/0:.:.:.:.	0/0:.:.:.:.	0/0:.:.:.:.	0/0:.:.:.:.	0/0:.:.:.:.	0/0:.:.:.:.
+3	2696	.	G	A	59.29	PASS	AC=0;AN=18	GT:AD:DP:GQ:PL	0/0:2,0:2:6:0,6,33	./.:0,0:0:.:0,0,0	0/0:.:.:.:.	0/0:.:.:.:.	0/0:.:.:.:.	0/0:.:.:.:.	0/0:.:.:.:.	0/0:.:.:.:.	0/0:.:.:.:.	0/0:.:.:.:.

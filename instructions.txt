@@ -1,0 +1,45 @@
+Some Practice Problems for using UNIX and Bash in Bioinformatics 
+ 
+ 
+1. copy everything in my practice directory over into a new directory in your project folder, so you dont have to worry about accidentily deleting or altering files: 
+ 
+cd /depot/bharpur/data/projects/gilchrist
+mkdir new_dir
+cp /depot/bharpur/data/projects/ryals/practice/* new_dir 
+cd new_dir
+
+2. submit the example.sh script to slurm. Read through the script and take a look at the output to see what it's doing 
+
+3. submit long.sh . This script will take a long time to run (like many of your future scripts will). To check in on how a script is doing in real time, I use the watch command. Try: 'watch tail long.out'
+    - if you dont want to wait 5min for this boring input, you can cancel the script. use ctrl-c to exit watch. run: 'squeue -u USERNAME' to see which of your scripts are running. You can then copy the script's JOBID and run 'scancel ######' to end it prematurely. I have to do this all the time when I realize I made a mistake or the script seems to be stuck. 
+
+4. take a look at a shot vcf file: less -S example.vcf
+    - vcfs contain every mutation (nucleotide or run of nucleotides different from the reference genome Amel_HAv3.1_genomic.fna) that occurs in at least one of our samples
+    - the first few hundred lines are a huge header with tons of metadata about the file. These included specific data formats, chromosomes included, and a long list of the commands used to generate the file. The first set are what gencove used, the last few are from my scripts.
+    - the last header line contains col names for the actual data
+        - the first two cols contain the position of the mutation
+        - 3rd col is an ID, not common in honey bees
+        - 4-5 are the reference (what Amel has in this position) and alt (what the samples have) alleles
+        - 6-8 are more stats on the position
+        - 9 is the format for the genotype call. the imporant part here is the first two numbers before the first colon, which represent whether the sample carries the reference or alternative allele. The rest of the numbers after the colon represent various statistics from the sequencing run.   
+        - the rest of the cols are each one sample included in the file
+            - 0/0 -> the sample is homozygous for the reference allele (this happens most of the time)
+            - 1/1 -> the sample is homozygous for the alt allele
+            - 0/1 or 1/0 -> the sample is heterozygous
+    - each row is another site in the genome.
+
+5. I extracted chromosome 3 from a few samples in our dataset into small.vcf.gz . You can take a look at the script generate_files.sh to see how I did that. I used bcftools rather than vcftools since I'm more comfortable with that program (it deals with compressed versions of VCF files which take up less space). The file extension .gz means it's a zipped (compressed) file, which makes it smaller but unreadable (if you try 'head small.vcf.gz' you'll see what I mean). You can uncompress it with 'gunzip small.vcf.gz -d' to view it like above, but you may find it easier to just work with the compressed file using vcftools, since it will handle the (de)compression for you.
+
+6. csd exercise
+    - the csd locus resides on chromosome 3 and is very important in honey bees. It controls sex: unfertilized eggs produce haploid larvae with only one copy of this gene, and they develop into males. Fertilized eggs -> diploid larvae -> females. If a fertilized egg has two of the same alleles (homozygous across the whole locus), the system fails and they develop into a diploid male. These are infertile and their sisters devour them. If there are too few unique copies of this gene in a colony, they will lose lots of workers this way and the colony will likely fail
+    
+    a. how many samples and sites are included in small.vcf.gz ?
+    
+    b. extract just the csd locus from this file and save it to a new file: look at https://www.ncbi.nlm.nih.gov/genome/gdv/browser/genome/?id=GCF_003254395.2 for information on the csd locus
+        - hint: bcftools -R or vcftools 'POSITION FILTERING' will help. check out the github pages for these programs, or use 'bcftools --help' in the terminal for more information
+    c. how many mutations exist across these 10 samples on the csd locus?
+        - hint: vcftools: --freq or --counts
+    d. verify that none of these workers are violating biology: they all must have at least one heterozygous mutation across this site
+        - many ways to do this. vcftools: --het or --LROH or --hapcount
+        - if you're more comfortable in R, check out the vcfR package. 
+    
